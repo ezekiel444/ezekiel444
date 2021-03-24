@@ -7,7 +7,7 @@ I am an end-to-end JavaScript enthusiast with extensive experience in the produc
 - 🔭 I’m currently open to work
 - 👯 Would love to collaborate on anything related to Web development
 - 🌱 On a never-ending quest for learning
-- 📫 Find me on: [https://matomi.netlify.app](https://matomi.netlify.app)
+- 📫 Find me on: [https://matomi.netlify.app](https://matomi.netlify.app)  ||  [https://matomi.gatsbyjs.io](https://matomi.gatsbyjs.io)  
 - ⚡️ Fun fact: I am a good footballer ☺
 
 ---
