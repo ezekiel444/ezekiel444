@@ -1,72 +1,90 @@
 <div align="center">
 
-<img src="./image/ascii_portrait.svg" alt="Matomi Lucky Ezekiel — ASCII Portrait" width="500"/>
-
-<br/>
+<img src="./image/ascii_portrait.svg" alt="Matomi Lucky Ezekiel" width="600"/>
 
 ```
-matomi@ezekiel
-──────────────────────────────────────────
-OS:            JavaScript Ecosystem
-Uptime:        5+ years building for the web
-Host:          South Africa
-Role:          Full-Stack JS Developer
-Mentor:        Code Your Future SA (2021)
-IDE:           VS Code
-
-Languages.Frontend:    React, Gatsby, Next.js
-Languages.Backend:     Node.js, Express
-Languages.Core:        JavaScript, TypeScript
-Languages.Markup:      HTML, CSS, SASS
-
-Focus.Primary:         Web Performance, UI/UX
-Focus.Secondary:       Accessibility, DX
-
-── Contact ─────────────────────────────
-Portfolio:     ezekielmatomilucky.com
-GitHub:        @ezekiel444
-
-── Status ──────────────────────────────
-Currently:     Open to work
-Collab:        Web development projects
-Learning:      Always
+matomi@cloud ══════════════════════════════════════════════════════════════
+              DevOps Engineer | Cloud Architect | Full Stack Developer
+              South Africa · Open to Work
 ```
-
-</div>
-
----
-
-<!-- Dynamic GitHub Stats — auto-updates on every profile view -->
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=ezekiel444&show_icons=true&hide_border=true&bg_color=0D1117&title_color=5B7D99&icon_color=D4AF37&text_color=E8DCC8&ring_color=5B7D99" alt="GitHub Stats" height="165"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ezekiel444&layout=compact&hide_border=true&bg_color=0D1117&title_color=5B7D99&text_color=E8DCC8" alt="Top Languages" height="165"/>
 
 </div>
 
 <br/>
 
+### Hi there 👋
+
+I'm Matomi, a DevOps Engineer and Cloud Architect with a Full Stack development background. I design and build cloud infrastructure, CI/CD pipelines, and container orchestration systems across Azure, AWS, and GCP. I also build web applications when the project calls for it.
+
+Previously a Full Stack JavaScript developer, I transitioned into cloud and DevOps after completing my Master's in Systems, Networks & Cloud Computing. I still enjoy mentoring developers (Code Your Future SA, 2021) and believe in learning by building.
+
+**Motto:** That that you do the most, will be that that you do the best. 💪
+
+- 🔭 Currently consulting on cloud infrastructure (Azure & AWS)
+- ☁️ Building Hub & Spoke architectures, service meshes, monitoring stacks
+- 👯 Would love to collaborate on DevOps, cloud, or web projects
+- 🌱 On a never-ending quest for learning
+- 📫 Find me at [ezekielmatomilucky.com](https://ezekielmatomilucky.com)
+- ⚽ Fun fact: I'm a footballer, been playing since childhood
+
+<br/>
+
+### What I Do
+
+☁️ **Cloud Architecture** — Azure, AWS, GCP solutions, Hub & Spoke infra
+
+🔄 **DevOps & CI/CD** — Kubernetes, Docker, Terraform, Ansible, GitLab/GitHub pipelines
+
+💻 **Full Stack Development** — React, Next.js, Node.js, Python
+
+👨‍🏫 **Mentorship** — Teaching, team leadership, code tutoring
+
+<br/>
+
+### Dashboard
+
 <div align="center">
 
-<img src="https://github-readme-streak-stats.herokuapp.com?user=ezekiel444&hide_border=true&background=0D1117&ring=5B7D99&fire=D4AF37&currStreakLabel=E8DCC8&sideLabels=E8DCC8&currStreakNum=E8DCC8&sideNums=E8DCC8&dates=4A6B8A" alt="GitHub Streak" width="500"/>
+<img src="https://github-profile-trophy.vercel.app/?username=ezekiel444&theme=darkhub&no-frame=true&column=4&margin-w=15&margin-h=15" alt="Trophies" width="600"/>
+
+<br/><br/>
+
+<img src="https://github-readme-stats.vercel.app/api?username=ezekiel444&show_icons=true&hide_border=true&bg_color=0D1117&title_color=5B7D99&icon_color=D4AF37&text_color=E8DCC8&ring_color=5B7D99&include_all_commits=true&count_private=true" alt="GitHub Stats" height="180"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ezekiel444&layout=compact&hide_border=true&bg_color=0D1117&title_color=5B7D99&text_color=E8DCC8&langs_count=8" alt="Top Languages" height="180"/>
+
+<br/><br/>
+
+<img src="https://github-readme-streak-stats.herokuapp.com?user=ezekiel444&hide_border=true&background=0D1117&ring=5B7D99&fire=D4AF37&currStreakLabel=E8DCC8&sideLabels=E8DCC8&currStreakNum=E8DCC8&sideNums=E8DCC8&dates=4A6B8A&stroke=2C4A5E" alt="GitHub Streak" width="520"/>
+
+<br/><br/>
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=ezekiel444&bg_color=0D1117&color=E8DCC8&line=5B7D99&point=D4AF37&area=true&area_color=2C4A5E&hide_border=true" alt="Activity Graph" width="90%"/>
 
 </div>
 
----
+<br/>
+
+### Tech
 
 <p align="center">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=0D1117" alt="JavaScript"/>
-  <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=0D1117" alt="React"/>
-  <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js"/>
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
-  <img src="https://img.shields.io/badge/Gatsby-663399?style=flat-square&logo=gatsby&logoColor=white" alt="Gatsby"/>
-  <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white" alt="Next.js"/>
+  <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes"/>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
+  <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform"/>
+  <img src="https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white" alt="Ansible"/>
+  <img src="https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Azure"/>
+  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=FF9900" alt="AWS"/>
+  <img src="https://img.shields.io/badge/GCP-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="GCP"/>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="Bash"/>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=0D1117" alt="React"/>
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js"/>
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
+  <img src="https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white" alt="GraphQL"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
+  <img src="https://img.shields.io/badge/GitLab_CI-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white" alt="GitLab CI"/>
 </p>
 
-<p align="center">
-  <sub>⚽ Fun fact: I am a good footballer</sub>
-</p>
+<br/>
 
 <p align="center">
   <sub>⭐ From <a href="https://github.com/ezekiel444">@Matomi Lucky Ezekiel</a></sub>

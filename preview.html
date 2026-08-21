@@ -4,42 +4,58 @@
   <meta charset="UTF-8">
   <title>ASCII Portrait Preview</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
       min-height: 100vh;
       background: #0D1117;
       font-family: system-ui, sans-serif;
-    }
-    .container {
-      text-align: center;
       padding: 2rem;
+      gap: 2rem;
     }
     h1 {
       color: #E8DCC8;
       font-weight: 300;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
-    p {
+    .label {
       color: #5B7D99;
-      font-size: 0.85rem;
-      margin-top: 1rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .card {
+      background: #161B22;
+      border: 1px solid #2C4A5E;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
     }
     img {
       border-radius: 8px;
-      box-shadow: 0 0 40px rgba(74, 107, 138, 0.15);
+      max-width: 100%;
+    }
+    .note {
+      color: #4A6B8A;
+      font-size: 0.75rem;
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>ASCII Portrait — Animation Preview</h1>
-    <img src="./image/ascii_portrait.svg" width="600" alt="Animated ASCII Portrait"/>
-    <p>Open this file in your browser to see the effects:<br/>
-    Typewriter reveal · Light shimmer · Breathing pulse · CRT scanlines</p>
+  <h1>ASCII Portrait — Animation Preview</h1>
+
+  <div class="card">
+    <div class="label">Ultra-HD (200 chars wide, font-size 5px)</div>
+    <img src="./image/ascii_portrait.svg" width="700" alt="HD ASCII Portrait"/>
+    <div class="note">
+      Effects: Typewriter reveal · Light shimmer (4s) · Breathing pulse (6s) · CRT scanlines
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="label">Refresh the page to replay the typewriter reveal animation</div>
   </div>
 </body>
 </html>
