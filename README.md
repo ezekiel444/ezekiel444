@@ -36,6 +36,25 @@ Learning:      Always
 
 ---
 
+<!-- Dynamic GitHub Stats — auto-updates on every profile view -->
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=ezekiel444&show_icons=true&hide_border=true&bg_color=0D1117&title_color=5B7D99&icon_color=D4AF37&text_color=E8DCC8&ring_color=5B7D99" alt="GitHub Stats" height="165"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ezekiel444&layout=compact&hide_border=true&bg_color=0D1117&title_color=5B7D99&text_color=E8DCC8" alt="Top Languages" height="165"/>
+
+</div>
+
+<br/>
+
+<div align="center">
+
+<img src="https://github-readme-streak-stats.herokuapp.com?user=ezekiel444&hide_border=true&background=0D1117&ring=5B7D99&fire=D4AF37&currStreakLabel=E8DCC8&sideLabels=E8DCC8&currStreakNum=E8DCC8&sideNums=E8DCC8&dates=4A6B8A" alt="GitHub Streak" width="500"/>
+
+</div>
+
+---
+
 <p align="center">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=0D1117" alt="JavaScript"/>
   <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=0D1117" alt="React"/>
