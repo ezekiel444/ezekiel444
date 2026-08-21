@@ -1,37 +1,35 @@
 <div align="center">
 
+<img src="./image/ascii_portrait.svg" alt="Matomi Lucky Ezekiel — ASCII Portrait" width="500"/>
+
+<br/>
+
 ```
-                                                            matomi@ezekiel
- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         ──────────────────────────────────────
- @@@@@@@@@@@@@@@@%*+-::......::-+*%@@@@@@@@@@@@@@@@         OS:          JavaScript Ecosystem
- @@@@@@@@@@@@@*-..                ..-*%@@@@@@@@@@@@         Uptime:      5+ years building for the web
- @@@@@@@@@@*-.  ......--=-:.  ....... .-*@@@@@@@@@@         Host:        South Africa
- @@@@@@@@+.  .......+%@@@@@@+............:+@@@@@@@@         Role:        Full-Stack JS Developer
- @@@@@@#: .........+%%#%%%@%@*.............:*@@@@@@         Mentor:      Code Your Future SA (2021)
- @@@@@= ..........:=--==+*****-.:::..........=@@@@@         IDE:         VS Code
- @@@@: ...........:--===+*##*++.::::::........:@@@@
- @@@: ............:=*%*+#@@@%**=:::::::........:@@@         Languages.Frontend:   React, Gatsby, Next.js
- @@: .............-==+=:+###***#:::::::::.......:@@         Languages.Backend:    Node.js, Express
- @+ ..............--=+-=#%%%%%#+::::::::::.......+@         Languages.Core:       JavaScript, TypeScript
- @................:=**==***%%%*:::::::::::........@         Languages.Markup:     HTML, CSS, SASS
- + ................:+*-:=+*#%%=:::::::::::........+
- :................:+*+==**##@%%#=-:::::::.........:         Focus.Primary:        Web Performance, UI/UX
- ..............:-*+%#=**#%@@@%@%#%*=-::::::::......         Focus.Secondary:      Accessibility, DX
- ..........:-+**##**#++*%@@%%@%%#%@#**+=-::::::....
- :......:=+*****###**%#**##%%**%#%@##%#**+=:::::...         ── Contact ──────────────────────────────
- -.....:+***#***####*#%*++=**#%@%%#####**#*+-::::.-         Portfolio:   ezekielmatomilucky.com
- #.....=+*###***###*##%%+=+%%%####*####***##+::::.#         GitHub:      @ezekiel444
- @-...-***##********+**##*%%###***##*###*###%+:::-@
- @%...=*###%#*****##*##*+*%#*****######*#@%%%*:::%@         ── Status ───────────────────────────────
- @@*..+#%%###****#######=*###****########@%%##=.*@@         Currently:   Open to work
- @@@+:+*%@##%***+*******+*##**####%##**#%@%#%%**@@@         Collab:      Web development projects
- @@@@%**#@@##**#**###*#*+*****#####**###%@%%##@@@@@         Learning:    Always
- @@@@@@#*@@%#**##*#####*******#######%%%@@%#%@@@@@@
- @@@@@@@@@@%#***+++***#*+******########%@@%@@@@@@@@         Fun fact:    I am a good footballer ⚽
- @@@@@@@@@@%=+##***####*+*#****#########%@@@@@@@@@@
- @@@@@@@@@@@%##**++*****+**#***#######@@@@@@@@@@@@@
- @@@@@@@@@@@@@@@%#**++*++*****##%%%@@@@@@@@@@@@@@@@
- @@@@@@@@@@@@@@@@@@@@@%%%%%%%@@@@@@@@@@@@@@@@@@@@@@
+matomi@ezekiel
+──────────────────────────────────────────
+OS:            JavaScript Ecosystem
+Uptime:        5+ years building for the web
+Host:          South Africa
+Role:          Full-Stack JS Developer
+Mentor:        Code Your Future SA (2021)
+IDE:           VS Code
+
+Languages.Frontend:    React, Gatsby, Next.js
+Languages.Backend:     Node.js, Express
+Languages.Core:        JavaScript, TypeScript
+Languages.Markup:      HTML, CSS, SASS
+
+Focus.Primary:         Web Performance, UI/UX
+Focus.Secondary:       Accessibility, DX
+
+── Contact ─────────────────────────────
+Portfolio:     ezekielmatomilucky.com
+GitHub:        @ezekiel444
+
+── Status ──────────────────────────────
+Currently:     Open to work
+Collab:        Web development projects
+Learning:      Always
 ```
 
 </div>
@@ -45,6 +43,10 @@
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
   <img src="https://img.shields.io/badge/Gatsby-663399?style=flat-square&logo=gatsby&logoColor=white" alt="Gatsby"/>
   <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white" alt="Next.js"/>
+</p>
+
+<p align="center">
+  <sub>⚽ Fun fact: I am a good footballer</sub>
 </p>
 
 <p align="center">
