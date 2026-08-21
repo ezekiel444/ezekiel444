@@ -49,7 +49,7 @@ Previously a Full Stack JavaScript developer, I transitioned into cloud and DevO
 
 <br/>
 
-<img src="https://ghstats.dev/api/sparkline?username=ezekiel444&days=30&width=500" alt="Activity Sparkline"/>
+<img src="https://ghstats.dev/api/sparkline?username=ezekiel444&days=90&width=800&height=150" alt="Activity Sparkline" width="90%"/>
 
 </div>
 
