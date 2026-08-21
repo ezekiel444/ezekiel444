@@ -1,12 +1,6 @@
 <div align="center">
 
-<img src="./image/ascii_portrait.svg" alt="Matomi Lucky Ezekiel" width="600"/>
-
-```
-matomi@cloud ══════════════════════════════════════════════════════════════
-              DevOps Engineer | Cloud Architect | Full Stack Developer
-              South Africa · Open to Work
-```
+<img src="./image/profile_card.svg" alt="Matomi Lucky Ezekiel" width="700"/>
 
 </div>
 
