@@ -24,9 +24,9 @@ except ImportError:
 # Config
 INPUT_IMAGE = "image/eml.jpg"
 OUTPUT_SVG = "image/profile_card.svg"
-PORTRAIT_WIDTH = 80
-FONT_SIZE = 7  # portrait character font
-INFO_FONT_SIZE = 13  # info text — readable but compact
+PORTRAIT_WIDTH = 150
+FONT_SIZE = 4  # smaller chars = more detail in face
+INFO_FONT_SIZE = 13
 BG_COLOR = "#0D1117"
 CHARS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
 
