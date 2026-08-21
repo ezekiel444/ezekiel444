@@ -120,18 +120,71 @@ def image_to_colored_svg(
     svg_lines.append(f'<svg xmlns="http://www.w3.org/2000/svg" '
                      f'viewBox="0 0 {svg_width} {svg_height}" '
                      f'width="{svg_width}" height="{svg_height}">')
+
+    # Defs for gradient overlays and filters
+    svg_lines.append('  <defs>')
+    # Scanline shimmer gradient — a light sweep that moves across
+    svg_lines.append('    <linearGradient id="shimmer" x1="0%" y1="0%" x2="100%" y2="0%">')
+    svg_lines.append('      <stop offset="0%" style="stop-color:rgba(255,255,255,0);"/>')
+    svg_lines.append('      <stop offset="45%" style="stop-color:rgba(255,255,255,0);"/>')
+    svg_lines.append('      <stop offset="50%" style="stop-color:rgba(255,255,255,0.08);"/>')
+    svg_lines.append('      <stop offset="55%" style="stop-color:rgba(255,255,255,0);"/>')
+    svg_lines.append('      <stop offset="100%" style="stop-color:rgba(255,255,255,0);"/>')
+    svg_lines.append('      <animate attributeName="x1" values="-100%;100%" dur="4s" repeatCount="indefinite"/>')
+    svg_lines.append('      <animate attributeName="x2" values="0%;200%" dur="4s" repeatCount="indefinite"/>')
+    svg_lines.append('    </linearGradient>')
+    # Subtle glow filter
+    svg_lines.append('    <filter id="glow" x="-5%" y="-5%" width="110%" height="110%">')
+    svg_lines.append('      <feGaussianBlur stdDeviation="1.5" result="blur"/>')
+    svg_lines.append('      <feComposite in="SourceGraphic" in2="blur" operator="over"/>')
+    svg_lines.append('    </filter>')
+    svg_lines.append('  </defs>')
+
+    # Background
     svg_lines.append(f'  <rect width="100%" height="100%" fill="{bg_color}"/>')
-    svg_lines.append(f'  <style>')
-    svg_lines.append(f'    text {{')
+
+    # Animated CSS styles
+    svg_lines.append('  <style>')
+    svg_lines.append('    text {')
     svg_lines.append(f'      font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;')
     svg_lines.append(f'      font-size: {font_size}px;')
-    svg_lines.append(f'      white-space: pre;')
-    svg_lines.append(f'    }}')
-    svg_lines.append(f'  </style>')
+    svg_lines.append('      white-space: pre;')
+    svg_lines.append('    }')
+    # Row-by-row typewriter reveal animation
+    svg_lines.append('    .row {')
+    svg_lines.append('      opacity: 0;')
+    svg_lines.append('      animation: reveal 0.03s ease-in forwards;')
+    svg_lines.append('    }')
+    svg_lines.append('    @keyframes reveal {')
+    svg_lines.append('      from { opacity: 0; }')
+    svg_lines.append('      to { opacity: 1; }')
+    svg_lines.append('    }')
+    # Subtle breathing pulse on the whole art
+    svg_lines.append('    .portrait-group {')
+    svg_lines.append('      animation: breathe 6s ease-in-out infinite;')
+    svg_lines.append('    }')
+    svg_lines.append('    @keyframes breathe {')
+    svg_lines.append('      0%, 100% { opacity: 1; filter: brightness(1); }')
+    svg_lines.append('      50% { opacity: 0.97; filter: brightness(1.03); }')
+    svg_lines.append('    }')
+    # CRT scanline effect
+    svg_lines.append('    .scanlines {')
+    svg_lines.append('      animation: flicker 8s linear infinite;')
+    svg_lines.append('    }')
+    svg_lines.append('    @keyframes flicker {')
+    svg_lines.append('      0%, 100% { opacity: 0.03; }')
+    svg_lines.append('      50% { opacity: 0.06; }')
+    svg_lines.append('    }')
+    svg_lines.append('  </style>')
+
+    # Portrait group with breathing effect
+    svg_lines.append('  <g class="portrait-group">')
 
     # Generate each row as a <text> element with colored <tspan>s
     for row in range(img_height):
         y_pos = 10 + (row + 1) * char_height
+        # Staggered reveal delay per row (typewriter effect)
+        delay = row * 0.04
         row_spans = []
         prev_color = None
         current_run = ""
@@ -159,7 +212,35 @@ def image_to_colored_svg(
         if current_run:
             row_spans.append(f'<tspan fill="{prev_color}">{current_run}</tspan>')
 
-        svg_lines.append(f'  <text x="10" y="{y_pos:.1f}">{"".join(row_spans)}</text>')
+        svg_lines.append(
+            f'  <text class="row" x="10" y="{y_pos:.1f}" '
+            f'style="animation-delay:{delay:.2f}s">'
+            f'{"".join(row_spans)}</text>'
+        )
+
+    svg_lines.append('  </g>')
+
+    # Shimmer overlay — light sweep across the portrait
+    svg_lines.append(
+        f'  <rect width="100%" height="100%" fill="url(#shimmer)" '
+        f'style="mix-blend-mode:overlay;pointer-events:none;"/>'
+    )
+
+    # CRT scanline overlay — subtle horizontal lines for that terminal feel
+    svg_lines.append('  <g class="scanlines" style="pointer-events:none;">')
+    for y in range(0, svg_height, 3):
+        svg_lines.append(
+            f'    <rect x="0" y="{y}" width="100%" height="1" '
+            f'fill="rgba(0,0,0,0.15)"/>'
+        )
+    svg_lines.append('  </g>')
+
+    # Subtle vignette corners
+    svg_lines.append(
+        f'  <rect width="100%" height="100%" rx="4" ry="4" '
+        f'fill="none" stroke="{bg_color}" stroke-width="8" '
+        f'style="pointer-events:none;"/>'
+    )
 
     svg_lines.append('</svg>')
     return "\n".join(svg_lines)
