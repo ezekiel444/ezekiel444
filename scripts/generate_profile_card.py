@@ -24,8 +24,9 @@ except ImportError:
 # Config
 INPUT_IMAGE = "image/eml.jpg"
 OUTPUT_SVG = "image/profile_card.svg"
-PORTRAIT_WIDTH = 70  # chars for portrait (left side)
+PORTRAIT_WIDTH = 80  # chars for portrait (left side)
 FONT_SIZE = 7
+INFO_FONT_SIZE = 12  # larger readable font for info panel
 BG_COLOR = "#0D1117"
 CHARS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
 
@@ -40,32 +41,21 @@ INFO_LINES = [
     ("label_value", ("Cloud:", "Azure, AWS, GCP")),
     ("label_value", ("IDE:", "VS Code")),
     ("spacer", ""),
-    ("section", "Languages.Infra:"),
-    ("value", "Bash, Python, YAML, HCL"),
-    ("section", "Languages.Dev:"),
-    ("value", "JavaScript, TypeScript"),
-    ("section", "Languages.Spoken:"),
-    ("value", "English, French, Enwan"),
-    ("spacer", ""),
-    ("section", "Tools.Orchestration:"),
-    ("value", "Kubernetes, Docker, Helm"),
-    ("section", "Tools.IaC:"),
-    ("value", "Terraform, Ansible, Pulumi"),
-    ("section", "Tools.CI/CD:"),
-    ("value", "GitLab CI, GitHub Actions"),
-    ("section", "Tools.Monitoring:"),
-    ("value", "Prometheus, Grafana, ELK"),
-    ("spacer", ""),
-    ("section", "Frameworks:"),
-    ("value", "React, Next.js, Node.js"),
+    ("header", "Stack"),
+    ("label_value", ("Infra:", "Bash, Python, HCL, YAML")),
+    ("label_value", ("Dev:", "JavaScript, TypeScript")),
+    ("label_value", ("Tools:", "K8s, Docker, Helm, Terraform")),
+    ("label_value", ("CI/CD:", "GitLab CI, GitHub Actions")),
+    ("label_value", ("Monitor:", "Prometheus, Grafana, ELK")),
+    ("label_value", ("Web:", "React, Next.js, Node.js")),
     ("spacer", ""),
     ("header", "Contact"),
-    ("label_value", ("Portfolio:", "ezekielmatomilucky.com")),
+    ("label_value", ("Web:", "ezekielmatomilucky.com")),
     ("label_value", ("GitHub:", "@ezekiel444")),
     ("spacer", ""),
     ("header", "Status"),
     ("label_value", ("Currently:", "Open to work")),
-    ("label_value", ("Focus:", "Cloud Architecture & DevOps")),
+    ("label_value", ("Focus:", "Cloud & DevOps")),
 ]
 
 # Color scheme
@@ -130,40 +120,42 @@ def generate_portrait_rows(image, chars):
 
 def build_info_line_svg(line_type, data, x_start, y_pos, font_size):
     """Build SVG text element for an info line."""
+    fs = INFO_FONT_SIZE
+
     if line_type == "title":
         return (f'<text x="{x_start}" y="{y_pos}" '
                 f'fill="{COLORS["title"]}" font-weight="bold" '
-                f'font-size="{font_size + 2}px">{escape(data)}</text>')
+                f'font-size="{fs + 4}px">{escape(data)}</text>')
 
     elif line_type == "separator":
-        sep = "═" * 45
+        sep = "═" * 32
         return (f'<text x="{x_start}" y="{y_pos}" '
                 f'fill="{COLORS["separator"]}" '
-                f'font-size="{font_size}px">{sep}</text>')
+                f'font-size="{fs}px">{sep}</text>')
 
     elif line_type == "label_value":
         label, value = data
-        return (f'<text x="{x_start}" y="{y_pos}" font-size="{font_size}px">'
+        return (f'<text x="{x_start}" y="{y_pos}" font-size="{fs}px">'
                 f'<tspan fill="{COLORS["label"]}">{escape(label)}</tspan>'
                 f'<tspan fill="{COLORS["value"]}">  {escape(value)}</tspan>'
                 f'</text>')
 
     elif line_type == "section":
         return (f'<text x="{x_start}" y="{y_pos}" '
-                f'fill="{COLORS["section"]}" '
-                f'font-size="{font_size}px">{escape(data)}</text>')
+                f'fill="{COLORS["section"]}" font-weight="bold" '
+                f'font-size="{fs}px">{escape(data)}</text>')
 
     elif line_type == "value":
-        return (f'<text x="{x_start + 10}" y="{y_pos}" '
+        return (f'<text x="{x_start + 12}" y="{y_pos}" '
                 f'fill="{COLORS["value"]}" '
-                f'font-size="{font_size}px">{escape(data)}</text>')
+                f'font-size="{fs}px">{escape(data)}</text>')
 
     elif line_type == "header":
         prefix = "── "
-        suffix = " " + "─" * (35 - len(data))
-        return (f'<text x="{x_start}" y="{y_pos}" font-size="{font_size}px">'
+        suffix = " " + "─" * (22 - len(data))
+        return (f'<text x="{x_start}" y="{y_pos}" font-size="{fs}px">'
                 f'<tspan fill="{COLORS["separator"]}">{prefix}</tspan>'
-                f'<tspan fill="{COLORS["header"]}">{escape(data)}</tspan>'
+                f'<tspan fill="{COLORS["header"]}" font-weight="bold">{escape(data)}</tspan>'
                 f'<tspan fill="{COLORS["separator"]}">{suffix}</tspan>'
                 f'</text>')
 
@@ -185,18 +177,18 @@ def generate_profile_card():
 
     # Dimensions
     portrait_pixel_width = int(PORTRAIT_WIDTH * char_w)
-    gap = 30  # space between portrait and info
-    info_panel_width = 340
+    gap = 40  # space between portrait and info
+    info_panel_width = 450
     total_width = portrait_pixel_width + gap + info_panel_width + 20
     total_height = int(portrait_height * char_h) + 20
 
     # Make sure info fits vertically
-    info_line_height = FONT_SIZE * 1.6
-    min_height_for_info = len(INFO_LINES) * info_line_height + 30
+    info_line_height = INFO_FONT_SIZE * 1.8
+    min_height_for_info = len(INFO_LINES) * info_line_height + 40
     total_height = max(total_height, int(min_height_for_info))
 
     info_x = portrait_pixel_width + gap
-    info_y_start = 20
+    info_y_start = 30
 
     svg = []
     svg.append(f'<svg xmlns="http://www.w3.org/2000/svg" '
