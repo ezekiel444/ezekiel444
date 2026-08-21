@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Generate a combined profile card SVG: ASCII portrait on the left,
-developer info panel on the right. One unified image for the README.
+Generate a combined profile card SVG: ASCII portrait top-left,
+info text wraps around it — starts on the right, then flows
+full-width below the portrait. Premium, space-efficient layout.
 
 Usage:
     python3 scripts/generate_profile_card.py
@@ -24,14 +25,15 @@ except ImportError:
 # Config
 INPUT_IMAGE = "image/eml.jpg"
 OUTPUT_SVG = "image/profile_card.svg"
-PORTRAIT_WIDTH = 100  # chars for portrait (left side)
-FONT_SIZE = 8
-INFO_FONT_SIZE = 24  # large, instantly readable
+PORTRAIT_WIDTH = 80  # chars for portrait
+FONT_SIZE = 7  # portrait font
+INFO_FONT_SIZE = 20  # info text font (big and readable)
 BG_COLOR = "#0D1117"
 CHARS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
 
-# Info panel content — edit these to update your profile
-INFO_LINES = [
+# Info panel content — split into RIGHT SIDE and BELOW sections
+# Right side: appears next to the portrait
+INFO_RIGHT = [
     ("title", "matomi@cloud"),
     ("separator", ""),
     ("label_value", ("Role:", "DevOps Engineer")),
@@ -43,6 +45,10 @@ INFO_LINES = [
     ("label_value", ("Infra:", "K8s, Docker, Terraform")),
     ("label_value", ("CI/CD:", "GitLab CI, GitHub Actions")),
     ("label_value", ("Monitor:", "Prometheus, Grafana")),
+]
+
+# Below section: flows full-width under the portrait
+INFO_BELOW = [
     ("label_value", ("Dev:", "React, Next.js, Node.js")),
     ("label_value", ("Lang:", "Python, Bash, TypeScript")),
     ("spacer", ""),
@@ -52,6 +58,7 @@ INFO_LINES = [
     ("spacer", ""),
     ("header", "Status"),
     ("label_value", ("Now:", "Open to work")),
+    ("label_value", ("Focus:", "Cloud Architecture & DevOps")),
 ]
 
 # Color scheme
@@ -114,7 +121,7 @@ def generate_portrait_rows(image, chars):
     return rows, height
 
 
-def build_info_line_svg(line_type, data, x_start, y_pos, font_size):
+def build_info_line_svg(line_type, data, x_start, y_pos):
     """Build SVG text element for an info line."""
     fs = INFO_FONT_SIZE
 
@@ -124,7 +131,7 @@ def build_info_line_svg(line_type, data, x_start, y_pos, font_size):
                 f'font-size="{fs + 8}px">{escape(data)}</text>')
 
     elif line_type == "separator":
-        sep = "═" * 28
+        sep = "═" * 30
         return (f'<text x="{x_start}" y="{y_pos}" '
                 f'fill="{COLORS["separator"]}" '
                 f'font-size="{fs}px">{sep}</text>')
@@ -132,7 +139,7 @@ def build_info_line_svg(line_type, data, x_start, y_pos, font_size):
     elif line_type == "label_value":
         label, value = data
         return (f'<text x="{x_start}" y="{y_pos}" font-size="{fs}px">'
-                f'<tspan fill="{COLORS["label"]}">{escape(label)}</tspan>'
+                f'<tspan fill="{COLORS["label"]}" font-weight="bold">{escape(label)}</tspan>'
                 f'<tspan fill="{COLORS["value"]}">  {escape(value)}</tspan>'
                 f'</text>')
 
@@ -148,7 +155,7 @@ def build_info_line_svg(line_type, data, x_start, y_pos, font_size):
 
     elif line_type == "header":
         prefix = "── "
-        suffix = " " + "─" * (18 - len(data))
+        suffix = " " + "─" * (20 - len(data))
         return (f'<text x="{x_start}" y="{y_pos}" font-size="{fs}px">'
                 f'<tspan fill="{COLORS["separator"]}">{prefix}</tspan>'
                 f'<tspan fill="{COLORS["header"]}" font-weight="bold">{escape(data)}</tspan>'
@@ -162,7 +169,7 @@ def build_info_line_svg(line_type, data, x_start, y_pos, font_size):
 
 
 def generate_profile_card():
-    """Generate the full profile card SVG."""
+    """Generate the full profile card SVG with text wrapping around portrait."""
     print(f"Loading: {INPUT_IMAGE}")
 
     image = load_and_resize(INPUT_IMAGE, PORTRAIT_WIDTH)
@@ -171,23 +178,34 @@ def generate_profile_card():
     char_w = FONT_SIZE * 0.6
     char_h = FONT_SIZE * 1.2
 
-    # Dimensions
+    # Layout measurements
     portrait_pixel_width = int(PORTRAIT_WIDTH * char_w)
-    gap = 50  # space between portrait and info
-    info_panel_width = 600
-    total_width = portrait_pixel_width + gap + info_panel_width + 30
-    portrait_total_height = int(portrait_height * char_h) + 20
+    portrait_pixel_height = int(portrait_height * char_h)
+    padding = 20
+    gap = 40
 
-    # Make sure info fits vertically
-    info_line_height = INFO_FONT_SIZE * 2.2
-    min_height_for_info = len(INFO_LINES) * info_line_height + 60
-    total_height = max(portrait_total_height, int(min_height_for_info))
+    # Info line spacing
+    info_line_height = INFO_FONT_SIZE * 2.4
 
-    # Vertically center the portrait if info is taller
-    portrait_y_offset = max(0, (total_height - portrait_total_height) // 2)
+    # Total width — enough for portrait + right-side text
+    info_right_width = 550
+    total_width = padding + portrait_pixel_width + gap + info_right_width + padding
 
-    info_x = portrait_pixel_width + gap
-    info_y_start = 50
+    # Calculate heights
+    right_section_height = len(INFO_RIGHT) * info_line_height + 40
+    below_section_height = len(INFO_BELOW) * info_line_height + 40
+
+    # Portrait sits at top-left
+    # Right text sits next to portrait
+    # Below text starts after portrait ends, spans full width
+    portrait_bottom = padding + portrait_pixel_height
+    below_start_y = portrait_bottom + 40  # gap after portrait
+
+    total_height = int(below_start_y + below_section_height + padding)
+
+    # X positions
+    right_x = padding + portrait_pixel_width + gap
+    below_x = padding + 30  # indent from left edge
 
     svg = []
     svg.append(f'<svg xmlns="http://www.w3.org/2000/svg" '
@@ -208,7 +226,7 @@ def generate_profile_card():
     svg.append('  </defs>')
 
     # Background
-    svg.append(f'  <rect width="100%" height="100%" fill="{BG_COLOR}" rx="6" ry="6"/>')
+    svg.append(f'  <rect width="100%" height="100%" fill="{BG_COLOR}" rx="8" ry="8"/>')
 
     # Styles
     svg.append('  <style>')
@@ -225,29 +243,51 @@ def generate_profile_card():
     svg.append('      50% { opacity: 0.97; filter: brightness(1.02); }')
     svg.append('    }')
     svg.append('    .info-line { opacity: 0; animation: fadeIn 0.3s ease-in forwards; }')
-    svg.append('    @keyframes fadeIn { from { opacity: 0; transform: translateX(5px); } to { opacity: 1; transform: translateX(0); } }')
+    svg.append('    @keyframes fadeIn {')
+    svg.append('      from { opacity: 0; transform: translateX(8px); }')
+    svg.append('      to { opacity: 1; transform: translateX(0); }')
+    svg.append('    }')
     svg.append('  </style>')
 
     svg.append('  <g class="card">')
 
-    # Portrait rows
+    # === PORTRAIT (top-left) ===
     for row_idx, spans in enumerate(portrait_rows):
-        y_pos = portrait_y_offset + 10 + (row_idx + 1) * char_h
-        delay = row_idx * 0.03
+        y_pos = padding + (row_idx + 1) * char_h
+        delay = row_idx * 0.025
         tspans = ''.join(f'<tspan fill="{color}">{text}</tspan>' for color, text in spans)
         svg.append(
-            f'  <text class="row" x="10" y="{y_pos:.1f}" '
-            f'style="animation-delay:{delay:.2f}s">{tspans}</text>'
+            f'  <text class="row" x="{padding}" y="{y_pos:.1f}" '
+            f'style="animation-delay:{delay:.3f}s">{tspans}</text>'
         )
 
-    # Info panel
-    info_start_delay = 0.5  # start after portrait begins revealing
-    for i, (line_type, data) in enumerate(INFO_LINES):
-        y_pos = info_y_start + i * info_line_height
-        delay = info_start_delay + i * 0.06
-        line_svg = build_info_line_svg(line_type, data, info_x, y_pos, FONT_SIZE)
+    # === RIGHT SIDE INFO (next to portrait) ===
+    right_y_start = padding + 30
+    info_delay_start = 0.4
+    for i, (line_type, data) in enumerate(INFO_RIGHT):
+        y_pos = right_y_start + i * info_line_height
+        delay = info_delay_start + i * 0.08
+        line_svg = build_info_line_svg(line_type, data, right_x, y_pos)
         if line_svg:
-            # Wrap in group for animation
+            svg.append(
+                f'  <g class="info-line" style="animation-delay:{delay:.2f}s">'
+                f'{line_svg}</g>'
+            )
+
+    # === BELOW SECTION (full width, under portrait) ===
+    # Decorative separator line between portrait area and below section
+    sep_y = below_start_y - 20
+    svg.append(
+        f'  <line x1="{padding}" y1="{sep_y}" x2="{total_width - padding}" y2="{sep_y}" '
+        f'stroke="{COLORS["separator"]}" stroke-width="0.5" opacity="0.6"/>'
+    )
+
+    below_delay_start = info_delay_start + len(INFO_RIGHT) * 0.08 + 0.2
+    for i, (line_type, data) in enumerate(INFO_BELOW):
+        y_pos = below_start_y + i * info_line_height
+        delay = below_delay_start + i * 0.08
+        line_svg = build_info_line_svg(line_type, data, below_x, y_pos)
+        if line_svg:
             svg.append(
                 f'  <g class="info-line" style="animation-delay:{delay:.2f}s">'
                 f'{line_svg}</g>'
@@ -255,13 +295,16 @@ def generate_profile_card():
 
     svg.append('  </g>')
 
-    # Shimmer overlay
-    svg.append(f'  <rect width="{portrait_pixel_width}" height="100%" '
-               f'fill="url(#shimmer)" style="mix-blend-mode:overlay;pointer-events:none;"/>')
+    # Shimmer overlay on portrait area
+    svg.append(
+        f'  <rect x="{padding}" y="{padding}" '
+        f'width="{portrait_pixel_width}" height="{portrait_pixel_height}" '
+        f'fill="url(#shimmer)" style="mix-blend-mode:overlay;pointer-events:none;"/>'
+    )
 
-    # Subtle border
-    svg.append(f'  <rect width="100%" height="100%" rx="6" ry="6" '
-               f'fill="none" stroke="#2C4A5E" stroke-width="1" opacity="0.5"/>')
+    # Subtle card border
+    svg.append(f'  <rect width="100%" height="100%" rx="8" ry="8" '
+               f'fill="none" stroke="#2C4A5E" stroke-width="1" opacity="0.4"/>')
 
     svg.append('</svg>')
 
@@ -270,8 +313,9 @@ def generate_profile_card():
     Path(OUTPUT_SVG).parent.mkdir(parents=True, exist_ok=True)
     Path(OUTPUT_SVG).write_text(output, encoding="utf-8")
     print(f"Generated: {OUTPUT_SVG}")
-    print(f"Dimensions: {total_width}x{total_height}px")
-    print(f"Portrait: {PORTRAIT_WIDTH} chars, Info: {len(INFO_LINES)} lines")
+    print(f"Card: {total_width}x{total_height}px")
+    print(f"Portrait: {PORTRAIT_WIDTH} chars ({portrait_pixel_width}x{portrait_pixel_height}px)")
+    print(f"Info: {len(INFO_RIGHT)} lines right, {len(INFO_BELOW)} lines below")
 
 
 if __name__ == "__main__":
