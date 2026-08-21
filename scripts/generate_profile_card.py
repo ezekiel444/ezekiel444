@@ -111,19 +111,20 @@ def generate_portrait_rows(image, chars):
 
 def build_info_line(line_type, data, x, y):
     fs = INFO_FONT_SIZE
+    ff = 'font-family="monospace"'
     if line_type == "title":
         return (f'<text x="{x}" y="{y}" fill="{COLORS["title"]}" '
-                f'font-weight="bold" font-size="{fs + 5}px">{escape(data)}</text>')
+                f'font-weight="bold" font-size="{fs + 5}px" {ff}>{escape(data)}</text>')
     elif line_type == "separator":
         return (f'<text x="{x}" y="{y}" fill="{COLORS["separator"]}" '
-                f'font-size="{fs}px">{"═" * 38}</text>')
+                f'font-size="{fs}px" {ff}>{"═" * 38}</text>')
     elif line_type == "label_value":
         label, value = data
-        return (f'<text x="{x}" y="{y}" font-size="{fs}px">'
+        return (f'<text x="{x}" y="{y}" font-size="{fs}px" {ff}>'
                 f'<tspan fill="{COLORS["label"]}" font-weight="bold">{escape(label)}</tspan>'
                 f'<tspan fill="{COLORS["value"]}"> {escape(value)}</tspan></text>')
     elif line_type == "header":
-        return (f'<text x="{x}" y="{y}" font-size="{fs}px">'
+        return (f'<text x="{x}" y="{y}" font-size="{fs}px" {ff}>'
                 f'<tspan fill="{COLORS["separator"]}">── </tspan>'
                 f'<tspan fill="{COLORS["header"]}" font-weight="bold">{escape(data)}</tspan>'
                 f'<tspan fill="{COLORS["separator"]}"> {"─" * (24 - len(data))}</tspan></text>')
@@ -170,58 +171,27 @@ def generate_profile_card():
                f'viewBox="0 0 {card_width} {card_height}" '
                f'width="{card_width}" height="{card_height}">')
 
-    # Defs
-    svg.append('  <defs>')
-    svg.append('    <linearGradient id="shimmer" x1="-100%" y1="0%" x2="0%" y2="0%">')
-    svg.append('      <stop offset="0%" style="stop-color:rgba(255,255,255,0);"/>')
-    svg.append('      <stop offset="50%" style="stop-color:rgba(255,255,255,0.05);"/>')
-    svg.append('      <stop offset="100%" style="stop-color:rgba(255,255,255,0);"/>')
-    svg.append('      <animate attributeName="x1" values="-100%;100%" dur="4s" repeatCount="indefinite"/>')
-    svg.append('      <animate attributeName="x2" values="0%;200%" dur="4s" repeatCount="indefinite"/>')
-    svg.append('    </linearGradient>')
-    svg.append('  </defs>')
-
     # Background
     svg.append(f'  <rect width="100%" height="100%" fill="{BG_COLOR}" rx="6"/>')
 
-    # Styles
-    svg.append('  <style>')
-    svg.append('    text { font-family: "JetBrains Mono","Fira Code","Consolas",monospace; white-space: pre; }')
-    svg.append('    .row { opacity:0; animation: reveal .02s ease-in forwards; }')
-    svg.append('    @keyframes reveal { to { opacity:1; } }')
-    svg.append('    .info { opacity:0; animation: fadeIn .25s ease forwards; }')
-    svg.append('    @keyframes fadeIn { to { opacity:1; } }')
-    svg.append('    .card { animation: breathe 6s ease-in-out infinite; }')
-    svg.append('    @keyframes breathe { 0%,100%{filter:brightness(1)} 50%{filter:brightness(1.02)} }')
-    svg.append('  </style>')
-
-    svg.append('  <g class="card">')
+    # Subtle border
+    svg.append(f'  <rect width="100%" height="100%" rx="6" '
+               f'fill="none" stroke="#2C4A5E" stroke-width="0.5" opacity="0.4"/>')
 
     # Portrait
     for i, spans in enumerate(portrait_rows):
         y = portrait_y0 + (i + 1) * char_h
-        d = i * 0.02
         tspans = ''.join(f'<tspan fill="{c}">{t}</tspan>' for c, t in spans)
-        svg.append(f'  <text class="row" x="{pad}" y="{y:.1f}" '
-                   f'font-size="{FONT_SIZE}px" style="animation-delay:{d:.3f}s">{tspans}</text>')
+        svg.append(f'  <text x="{pad}" y="{y:.1f}" '
+                   f'font-family="monospace" font-size="{FONT_SIZE}px" '
+                   f'xml:space="preserve">{tspans}</text>')
 
     # Info lines
     for i, (lt, data) in enumerate(INFO_LINES):
         y = info_y0 + (i + 1) * info_lh
-        d = 0.3 + i * 0.06
         line = build_info_line(lt, data, info_x, y)
         if line:
-            svg.append(f'  <g class="info" style="animation-delay:{d:.2f}s">{line}</g>')
-
-    svg.append('  </g>')
-
-    # Shimmer
-    svg.append(f'  <rect x="{pad}" y="0" width="{portrait_px_w}" height="100%" '
-               f'fill="url(#shimmer)" style="mix-blend-mode:overlay;pointer-events:none;"/>')
-
-    # Border
-    svg.append(f'  <rect width="100%" height="100%" rx="6" '
-               f'fill="none" stroke="#2C4A5E" stroke-width="0.5" opacity="0.4"/>')
+            svg.append(f'  {line}')
 
     svg.append('</svg>')
 
