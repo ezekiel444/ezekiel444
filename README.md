@@ -39,7 +39,7 @@ Previously a Full Stack JavaScript developer, I transitioned into cloud and DevO
 
 <div align="center">
 
-<img src="https://github-profile-trophy.vercel.app/?username=ezekiel444&theme=darkhub&no-frame=true&column=4&margin-w=15&margin-h=15" alt="Trophies" width="600"/>
+<img src="https://github-profile-trophy.vercel.app/?username=ezekiel444&theme=onedark&no-frame=true&no-bg=true&column=4&margin-w=15&margin-h=15" alt="Trophies" width="600"/>
 
 <br/><br/>
 
@@ -48,7 +48,7 @@ Previously a Full Stack JavaScript developer, I transitioned into cloud and DevO
 
 <br/><br/>
 
-<img src="https://github-readme-streak-stats.herokuapp.com?user=ezekiel444&hide_border=true&background=0D1117&ring=5B7D99&fire=D4AF37&currStreakLabel=E8DCC8&sideLabels=E8DCC8&currStreakNum=E8DCC8&sideNums=E8DCC8&dates=4A6B8A&stroke=2C4A5E" alt="GitHub Streak" width="520"/>
+<img src="https://streak-stats.demolab.com?user=ezekiel444&hide_border=true&background=0D1117&ring=5B7D99&fire=D4AF37&currStreakLabel=E8DCC8&sideLabels=E8DCC8&currStreakNum=E8DCC8&sideNums=E8DCC8&dates=4A6B8A&stroke=2C4A5E" alt="GitHub Streak" width="520"/>
 
 <br/><br/>
 

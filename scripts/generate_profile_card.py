@@ -26,7 +26,7 @@ INPUT_IMAGE = "image/eml.jpg"
 OUTPUT_SVG = "image/profile_card.svg"
 PORTRAIT_WIDTH = 80  # chars for portrait (left side)
 FONT_SIZE = 7
-INFO_FONT_SIZE = 12  # larger readable font for info panel
+INFO_FONT_SIZE = 16  # big, readable font for info panel
 BG_COLOR = "#0D1117"
 CHARS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
 
@@ -34,28 +34,24 @@ CHARS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'.
 INFO_LINES = [
     ("title", "matomi@cloud"),
     ("separator", ""),
-    ("label_value", ("OS:", "Kubernetes, Docker, Terraform")),
-    ("label_value", ("Uptime:", "5+ years building & deploying")),
-    ("label_value", ("Host:", "South Africa")),
     ("label_value", ("Role:", "DevOps Engineer")),
     ("label_value", ("Cloud:", "Azure, AWS, GCP")),
-    ("label_value", ("IDE:", "VS Code")),
+    ("label_value", ("Host:", "South Africa")),
+    ("label_value", ("Uptime:", "5+ years")),
     ("spacer", ""),
     ("header", "Stack"),
-    ("label_value", ("Infra:", "Bash, Python, HCL, YAML")),
-    ("label_value", ("Dev:", "JavaScript, TypeScript")),
-    ("label_value", ("Tools:", "K8s, Docker, Helm, Terraform")),
+    ("label_value", ("Infra:", "K8s, Docker, Terraform")),
     ("label_value", ("CI/CD:", "GitLab CI, GitHub Actions")),
-    ("label_value", ("Monitor:", "Prometheus, Grafana, ELK")),
-    ("label_value", ("Web:", "React, Next.js, Node.js")),
+    ("label_value", ("Monitor:", "Prometheus, Grafana")),
+    ("label_value", ("Dev:", "React, Next.js, Node.js")),
+    ("label_value", ("Lang:", "Python, Bash, TypeScript")),
     ("spacer", ""),
     ("header", "Contact"),
     ("label_value", ("Web:", "ezekielmatomilucky.com")),
     ("label_value", ("GitHub:", "@ezekiel444")),
     ("spacer", ""),
     ("header", "Status"),
-    ("label_value", ("Currently:", "Open to work")),
-    ("label_value", ("Focus:", "Cloud & DevOps")),
+    ("label_value", ("Now:", "Open to work")),
 ]
 
 # Color scheme
@@ -125,7 +121,7 @@ def build_info_line_svg(line_type, data, x_start, y_pos, font_size):
     if line_type == "title":
         return (f'<text x="{x_start}" y="{y_pos}" '
                 f'fill="{COLORS["title"]}" font-weight="bold" '
-                f'font-size="{fs + 4}px">{escape(data)}</text>')
+                f'font-size="{fs + 6}px">{escape(data)}</text>')
 
     elif line_type == "separator":
         sep = "═" * 32
@@ -178,13 +174,13 @@ def generate_profile_card():
     # Dimensions
     portrait_pixel_width = int(PORTRAIT_WIDTH * char_w)
     gap = 40  # space between portrait and info
-    info_panel_width = 450
+    info_panel_width = 500
     total_width = portrait_pixel_width + gap + info_panel_width + 20
     total_height = int(portrait_height * char_h) + 20
 
     # Make sure info fits vertically
-    info_line_height = INFO_FONT_SIZE * 1.8
-    min_height_for_info = len(INFO_LINES) * info_line_height + 40
+    info_line_height = INFO_FONT_SIZE * 2.0
+    min_height_for_info = len(INFO_LINES) * info_line_height + 50
     total_height = max(total_height, int(min_height_for_info))
 
     info_x = portrait_pixel_width + gap
