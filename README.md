@@ -39,12 +39,8 @@ Previously a Full Stack JavaScript developer, I transitioned into cloud and DevO
 
 <div align="center">
 
-<img src="https://github-profile-trophy.vercel.app/?username=ezekiel444&theme=onedark&no-frame=true&no-bg=true&column=4&margin-w=15&margin-h=15" alt="Trophies" width="600"/>
-
-<br/><br/>
-
-<img src="https://github-readme-stats.vercel.app/api?username=ezekiel444&show_icons=true&hide_border=true&bg_color=0D1117&title_color=5B7D99&icon_color=D4AF37&text_color=E8DCC8&ring_color=5B7D99&include_all_commits=true&count_private=true" alt="GitHub Stats" height="180"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ezekiel444&layout=compact&hide_border=true&bg_color=0D1117&title_color=5B7D99&text_color=E8DCC8&langs_count=8" alt="Top Languages" height="180"/>
+<img src="https://ghstats.dev/api/card?username=ezekiel444&theme=tokyonight" alt="GitHub Stats" height="180"/>
+<img src="https://ghstats.dev/api/langs?username=ezekiel444&theme=tokyonight&layout=compact" alt="Top Languages" height="180"/>
 
 <br/><br/>
 
@@ -52,7 +48,7 @@ Previously a Full Stack JavaScript developer, I transitioned into cloud and DevO
 
 <br/><br/>
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=ezekiel444&bg_color=0D1117&color=E8DCC8&line=5B7D99&point=D4AF37&area=true&area_color=2C4A5E&hide_border=true" alt="Activity Graph" width="90%"/>
+<img src="https://ghstats.dev/api/sparkline?username=ezekiel444&days=30&width=500" alt="Activity Sparkline"/>
 
 </div>
 
