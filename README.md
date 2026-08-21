@@ -2,29 +2,30 @@
 
 <img src="./image/ascii_portrait.svg" alt="Matomi Lucky Ezekiel" width="600"/>
 
-```
-matomi@ezekiel
-══════════════════════════════════════
-OS:         JavaScript Ecosystem
-Uptime:     5+ years building for the web
-Host:       South Africa
-Role:       Full-Stack JS Developer
-IDE:        VS Code
-```
+<br/><br/>
+
+# Matomi Lucky Ezekiel
+
+**Full-Stack JavaScript Developer · South Africa**
 
 </div>
 
 <br/>
 
-### Hi there, I'm Matomi 👋
+### Hi there 👋
 
-I'm an end-to-end JavaScript developer with deep experience across the product development lifecycle. I build fast, accessible, and thoughtful web experiences and I enjoy mentoring others along the way (Code Your Future SA, 2021).
+I'm Matomi, an end-to-end JavaScript developer with 5+ years of experience across the product development lifecycle. I build fast, accessible, and thoughtful web experiences and I enjoy mentoring others along the way (Code Your Future SA, 2021).
 
 I mostly work with **React**, **Node.js**, **TypeScript**, **Gatsby**, and **Next.js**, with a focus on web performance and clean UI/UX.
 
-- 🔭 Currently open to work
-- 👯 Would love to collaborate on anything web development
-- 🌱 On a never-ending quest for learning
+```
+matomi@github
+══════════════════════════════════════
+Currently:     Open to work
+Collab:        Web development projects
+Learning:      Always
+```
+
 - 📫 Find me at [ezekielmatomilucky.com](https://ezekielmatomilucky.com)
 - ⚽ Fun fact: I'm a good footballer
 
@@ -34,28 +35,23 @@ I mostly work with **React**, **Node.js**, **TypeScript**, **Gatsby**, and **Nex
 
 <div align="center">
 
-<!-- Profile Trophy -->
 <img src="https://github-profile-trophy.vercel.app/?username=ezekiel444&theme=darkhub&no-frame=true&column=4&margin-w=15&margin-h=15" alt="Trophies" width="600"/>
 
 <br/><br/>
 
-<!-- Stats + Languages side by side -->
 <img src="https://github-readme-stats.vercel.app/api?username=ezekiel444&show_icons=true&hide_border=true&bg_color=0D1117&title_color=5B7D99&icon_color=D4AF37&text_color=E8DCC8&ring_color=5B7D99&include_all_commits=true&count_private=true" alt="GitHub Stats" height="180"/>
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ezekiel444&layout=compact&hide_border=true&bg_color=0D1117&title_color=5B7D99&text_color=E8DCC8&langs_count=8" alt="Top Languages" height="180"/>
 
 <br/><br/>
 
-<!-- Streak -->
 <img src="https://github-readme-streak-stats.herokuapp.com?user=ezekiel444&hide_border=true&background=0D1117&ring=5B7D99&fire=D4AF37&currStreakLabel=E8DCC8&sideLabels=E8DCC8&currStreakNum=E8DCC8&sideNums=E8DCC8&dates=4A6B8A&stroke=2C4A5E" alt="GitHub Streak" width="520"/>
 
 <br/><br/>
 
-<!-- Activity Graph -->
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=ezekiel444&bg_color=0D1117&color=E8DCC8&line=5B7D99&point=D4AF37&area=true&area_color=2C4A5E&hide_border=true" alt="Activity Graph" width="90%"/>
 
 <br/><br/>
 
-<!-- Profile Views Counter -->
 <img src="https://komarev.com/ghpvc/?username=ezekiel444&style=for-the-badge&color=2C4A5E&label=PROFILE+VIEWS" alt="Profile Views"/>
 
 </div>
