@@ -24,9 +24,9 @@ except ImportError:
 # Config
 INPUT_IMAGE = "image/eml.jpg"
 OUTPUT_SVG = "image/profile_card.svg"
-PORTRAIT_WIDTH = 80  # chars for portrait (left side)
-FONT_SIZE = 7
-INFO_FONT_SIZE = 16  # big, readable font for info panel
+PORTRAIT_WIDTH = 100  # chars for portrait (left side)
+FONT_SIZE = 8
+INFO_FONT_SIZE = 24  # large, instantly readable
 BG_COLOR = "#0D1117"
 CHARS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
 
@@ -121,10 +121,10 @@ def build_info_line_svg(line_type, data, x_start, y_pos, font_size):
     if line_type == "title":
         return (f'<text x="{x_start}" y="{y_pos}" '
                 f'fill="{COLORS["title"]}" font-weight="bold" '
-                f'font-size="{fs + 6}px">{escape(data)}</text>')
+                f'font-size="{fs + 8}px">{escape(data)}</text>')
 
     elif line_type == "separator":
-        sep = "═" * 32
+        sep = "═" * 28
         return (f'<text x="{x_start}" y="{y_pos}" '
                 f'fill="{COLORS["separator"]}" '
                 f'font-size="{fs}px">{sep}</text>')
@@ -148,7 +148,7 @@ def build_info_line_svg(line_type, data, x_start, y_pos, font_size):
 
     elif line_type == "header":
         prefix = "── "
-        suffix = " " + "─" * (22 - len(data))
+        suffix = " " + "─" * (18 - len(data))
         return (f'<text x="{x_start}" y="{y_pos}" font-size="{fs}px">'
                 f'<tspan fill="{COLORS["separator"]}">{prefix}</tspan>'
                 f'<tspan fill="{COLORS["header"]}" font-weight="bold">{escape(data)}</tspan>'
@@ -173,18 +173,21 @@ def generate_profile_card():
 
     # Dimensions
     portrait_pixel_width = int(PORTRAIT_WIDTH * char_w)
-    gap = 40  # space between portrait and info
-    info_panel_width = 500
-    total_width = portrait_pixel_width + gap + info_panel_width + 20
-    total_height = int(portrait_height * char_h) + 20
+    gap = 50  # space between portrait and info
+    info_panel_width = 600
+    total_width = portrait_pixel_width + gap + info_panel_width + 30
+    portrait_total_height = int(portrait_height * char_h) + 20
 
     # Make sure info fits vertically
-    info_line_height = INFO_FONT_SIZE * 2.0
-    min_height_for_info = len(INFO_LINES) * info_line_height + 50
-    total_height = max(total_height, int(min_height_for_info))
+    info_line_height = INFO_FONT_SIZE * 2.2
+    min_height_for_info = len(INFO_LINES) * info_line_height + 60
+    total_height = max(portrait_total_height, int(min_height_for_info))
+
+    # Vertically center the portrait if info is taller
+    portrait_y_offset = max(0, (total_height - portrait_total_height) // 2)
 
     info_x = portrait_pixel_width + gap
-    info_y_start = 30
+    info_y_start = 50
 
     svg = []
     svg.append(f'<svg xmlns="http://www.w3.org/2000/svg" '
@@ -229,7 +232,7 @@ def generate_profile_card():
 
     # Portrait rows
     for row_idx, spans in enumerate(portrait_rows):
-        y_pos = 10 + (row_idx + 1) * char_h
+        y_pos = portrait_y_offset + 10 + (row_idx + 1) * char_h
         delay = row_idx * 0.03
         tspans = ''.join(f'<tspan fill="{color}">{text}</tspan>' for color, text in spans)
         svg.append(

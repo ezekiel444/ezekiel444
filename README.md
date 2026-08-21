@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./image/profile_card.svg" alt="Matomi Lucky Ezekiel" width="700"/>
+<img src="./image/profile_card.svg" alt="Matomi Lucky Ezekiel" width="100%"/>
 
 </div>
 
