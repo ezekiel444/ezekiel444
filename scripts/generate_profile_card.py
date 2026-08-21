@@ -32,11 +32,11 @@ CHARS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'.
 
 # All info lines — one continuous block on the right
 INFO_LINES = [
-    ("title", "matomi@cloud"),
+    ("title", "Matomi Lucky Ezekiel"),
     ("separator", ""),
     ("label_value", ("Role:", "DevOps Engineer")),
     ("label_value", ("Cloud:", "Azure, AWS, GCP")),
-    ("label_value", ("Host:", "South Africa")),
+    ("label_value", ("Host:", "Lyon, France")),
     ("label_value", ("Uptime:", "5+ years")),
     ("label_value", ("IDE:", "VS Code")),
     ("spacer", ""),

@@ -18,6 +18,7 @@ Previously a Full Stack JavaScript developer, I transitioned into cloud and DevO
 - ☁️ Building Hub & Spoke architectures, service meshes, monitoring stacks
 - 👯 Would love to collaborate on DevOps, cloud, or web projects
 - 🌱 On a never-ending quest for learning
+- 📍 Based in Lyon, France
 - 📫 Find me at [ezekielmatomilucky.com](https://ezekielmatomilucky.com)
 - ⚽ Fun fact: I'm a footballer, been playing since childhood
 
@@ -39,14 +40,14 @@ Previously a Full Stack JavaScript developer, I transitioned into cloud and DevO
 
 <div align="center">
 
-<img src="https://ghstats.dev/api/card?username=ezekiel444&theme=tokyonight" alt="GitHub Stats" height="180"/>
-<img src="https://ghstats.dev/api/langs?username=ezekiel444&theme=tokyonight&layout=compact" alt="Top Languages" height="180"/>
+<img src="https://ghstats.dev/api/card?username=ezekiel444&theme=tokyonight" alt="GitHub Stats" width="450"/>
+<img src="https://ghstats.dev/api/langs?username=ezekiel444&theme=tokyonight&layout=compact" alt="Top Languages" width="350"/>
 
-<br/><br/>
+<br/>
 
-<img src="https://streak-stats.demolab.com?user=ezekiel444&hide_border=true&background=0D1117&ring=5B7D99&fire=D4AF37&currStreakLabel=E8DCC8&sideLabels=E8DCC8&currStreakNum=E8DCC8&sideNums=E8DCC8&dates=4A6B8A&stroke=2C4A5E" alt="GitHub Streak" width="520"/>
+<img src="https://streak-stats.demolab.com?user=ezekiel444&hide_border=true&background=0D1117&ring=5B7D99&fire=D4AF37&currStreakLabel=E8DCC8&sideLabels=E8DCC8&currStreakNum=E8DCC8&sideNums=E8DCC8&dates=4A6B8A&stroke=2C4A5E" alt="GitHub Streak" width="450"/>
 
-<br/><br/>
+<br/>
 
 <img src="https://ghstats.dev/api/sparkline?username=ezekiel444&days=30&width=500" alt="Activity Sparkline"/>
 
